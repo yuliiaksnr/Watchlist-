@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Список фільмів</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      border-radius: 8px;
+      border: none;
+    }
+    button {
+      cursor: pointer;
+    }
+    .movie {
+      background: #222;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎬 Список фільмів</h1>
+
+<input type="text" id="movieInput" placeholder="Назва фільму">
+<br>
+
+<button onclick="addMovie('Хочу подивитись')">Хочу</button>
+<button onclick="addMovie('Дивлюсь')">Дивлюсь</button>
+<button onclick="addMovie('Подивилась')">Подивилась</button>
+
+<div id="list"></div>
+
+<script>
+function addMovie(status) {
+  const input = document.getElementById("movieInput");
+  const name = input.value;
+
+  if (name === "") {
+    alert("Введи назву фільму");
+    return;
+  }
+
+  const div = document.createElement("div");
+  div.className = "movie";
+  div.innerHTML = "<b>" + name + "</b><br>Статус: " + status;
+
+  document.getElementById("list").appendChild(div);
+
+  input.value = "";
+}
+</script>
+
+</body>
+</html>
